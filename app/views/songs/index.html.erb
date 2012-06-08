@@ -1,0 +1,30 @@
+<h1>Listing songs</h1>
+<% #from the book %>
+<table>
+<% @songs.each do |song| %>
+  <tr class="<%= cycle('list_line_odd', 'list_line_even') %>">
+    <td class="list_description">
+      <dl>
+        <dt>"<%= song.title %>"</dt>
+        <dt>(<%= song.artist %>)</dd>
+      </dl>
+      <dl>
+        <dd><%= truncate(strip_tags(song.description), length: 80) %></dd>
+        <dd>File name: <%= song.file %></dt>
+        <dd><%= song.length %> (seconds)</dt>
+      </dl>
+    </td>
+    <td class ="list_actions">
+      <%= link_to 'Show', song %>
+      <%= link_to 'Edit', edit_song_path(song) %>
+      <%= link_to 'Destroy', song,
+        confirm: 'Are you sure?',
+        method: :delete %>
+    </td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Song', new_song_path %>

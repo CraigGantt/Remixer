@@ -1,0 +1,25 @@
+<% if notice #most of this file came from the book%>
+<p id="notice"><%= notice %></p>
+<% end %>
+
+<h1>Your "Wannabe" Remixer</h1>
+
+<% @songs.each do |song| %>
+  <div class="entry">
+    <h3><%=song.artist%>'s "<%= song.title %>"</h3>
+    Description: <%= sanitize(song.description) %> 
+    <html>
+      <head>
+        <title>Play <%=song.title %> Here!</title>
+      </head>
+      <body>
+        <h2></h2>
+          <%= audio_tag("/assets/"+song.file, :autoplay => false, :controls => true)%>
+          <% # learned audio_tag from: http://api.rubyonrails.org/classes/ActionView/Helpers/AssetTagHelper.html#method-i-audio_tag %>
+      </body>
+    </html>    
+    <div class="length_line">
+      <span class="length"><%= song.length %> (seconds)</span>
+    </div>
+  </div>
+<% end %>

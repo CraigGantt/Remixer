@@ -1,0 +1,40 @@
+<h1>Remix for a new song</h1>
+Reverse:
+  <!-- http://www.w3schools.com/html/html_forms.asp button setup (same as below)
+  also http://api.rubyonrails.org/classes/ActionView/Helpers/FormTagHelper.html
+  for their submit tag, text tag, and number tag -->
+  <form name="fileReciever" action= "songs/create2/Emotionless.wav" method= "">
+    Song file: <%= text_field_tag :file %>
+    <%= submit_tag "Make Song", confirm: "Are you sure?" %>
+  </form>
+
+  Play Speed:
+  <form name="fileMultiReciever" action= "<%="#{songs_path}"%>" method= "POST">
+    Song file: <%= text_field_tag :file %>
+    Multiplier: <%= text_field_tag 'speed', 2.5 %>
+    <%= submit_tag "Make Song", confirm: "Are you sure?" %>
+  </form>
+
+  Combine:
+  <form name="2fileReciever" action="<%="#{songs_path}"%>" method= "POST">
+    Song file: <%= text_field_tag :file %>
+    Other Song file: <%= text_field_tag :file2 %>
+    <%= submit_tag "Make Song", confirm: "Are you sure?" %>
+  </form>
+
+  Mix:
+    <form name="2fileReciever2" action="<%="#{songs_path}"%>" method= "POST">
+    Song file: <%= text_field_tag :file %>
+    Other Song file: <%= text_field_tag :file2 %>
+    Other's start time: <%=number_field_tag :time, 0, in: 0...1000%>
+    <%= submit_tag "Make Song", confirm: "Are you sure?" %>
+  </form>
+
+  Trim:
+  <form name="fileTimesReciever" action="<%="#{songs_path}"%>" method="POST">
+    Song file: <%= text_field_tag 'file'%>
+    Start time: <%=number_field_tag 'time', nil, in: 0...1000%>
+    End time: <%=number_field_tag 'time2', nil, in: 0...1000%>
+    <%= submit_tag "Make Song", confirm: "Are you sure?" %>
+  </form>
+<%= link_to 'Abort Remixing', songs_path %>

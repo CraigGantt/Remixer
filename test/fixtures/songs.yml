@@ -1,0 +1,22 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+#copied from book, modified for remixer
+one:
+  title: MyString
+  artist: MyString
+  description: MyString
+  file: MyString
+  length: 1
+
+two:
+  title: MyString
+  artist: MyString
+  description: MyString
+  file: MyString
+  length: 1
+
+ruby:
+  title:       Emotionless
+  artist:      Good Charlotte
+  description: Emo
+  file:        Emotionless.wav
+  length:      243
